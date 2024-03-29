@@ -3,6 +3,7 @@
     height: 97vh;
     position: relative;
 }
+
 #degreeScale {
     position: absolute;
     top: 15px;
@@ -13,6 +14,8 @@
     z-index: 2;
     font-weight: bold;
 }
+
+
 #degreeScale::before {
     content: '';
     position: absolute;
@@ -24,6 +27,7 @@
     background-color: rgb(0, 0, 0);
     z-index: 1;
 }
+
 #controls {
     position: absolute;
     bottom: 0;
@@ -32,6 +36,7 @@
     width: 100%;
     padding-bottom: 3px;
 }
+
 .ctrl {
     padding: 8px 5px;
     width: 30px;
@@ -40,31 +45,23 @@
     display: inline-block;
     cursor: pointer;
     position: relative;
-    display: inline-block;
     margin: 5px;
 }
+
 .ctrl:hover::after {
     content: attr(text);
     position: absolute;
     top: -30px; 
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     background-color: #333;
     color: #fff;
     padding: 5px;
     border-radius: 5px;
-    display: inline-block;
     white-space: nowrap;
 }
-.popup-container {
-    position: absolute;
-    top:-160%;
-    left: 50%;
-    transform: translate(-20%, -50%);
-    padding: 10px;
-    display: none;
-    z-index: 9999;
-}
+
+
 .popup-window {
     position: relative;
     display: flex;
@@ -75,46 +72,90 @@
     height: 70px;
     border: 6px solid rgba(255, 255, 255, 0.8);
 }
+
 .popup-window img {
     width: 100%;
     height: auto;
-   
-}
-.popup-container.one{
-    left: calc(50% - 360px); 
-    
 }
 
-.popup-container.two{
-    left: calc(50% - 180px); 
 
-}
-.popup-container.three{
-    left: calc(50% + 180px); 
-
-}
-.popup-container.four{
-    left: calc(50% -100px); 
-
+.popup-container {
+    position: absolute;
+    top: -160%;
+    left: 50%;
+    transform: translate(-90%, -50%);
+    padding: 10px 10px 10px 10px;
+    display: none;
+    z-index: 9999;
 }
 
 .popup-window-text {
     position: absolute;
-    bottom: 25px;
+    transform: translate(-90%, -50%);
+    top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(0, 0, 0, 0.8);
+    color: rgb(5, 5, 5);
+    z-index: 9999;
     font-size: 18px;
     z-index: 1;
     visibility: visible;
     font-weight: bold;
     padding: 5px; /* Add padding for better appearance */
     border-radius: 5px; /* Add border radius for better appearance */
-
 }
+
 .popup-window:hover .popup-window-text {
     visibility: visible;
 }
+
 .popup-window:hover {
-    border-color:rgba(8, 189, 240, 0.8);
+    border-color: rgba(8, 189, 240, 0.8);
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    #degreeScale {
+        font-size: 16px;
+    }
+    .ctrl {
+        padding: 6px 4px;
+        width: 25px;
+    }
+    .popup-window {
+        width: 120px;
+        height: 60px;
+    }
+    .popup-window-text {
+        font-size: 16px;
+        bottom: 20px;
+    }
+}
+
+
+.popup-container.one {
+    left: -900%;
+}
+
+.popup-container.two {
+    left: -470%;
+}
+
+.popup-container.three {
+    left: -50%;
+}
+
+.popup-container.four {
+    left: 380%;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .popup-container.one,
+    .popup-container.two,
+    .popup-container.three,
+    .popup-container.four {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
